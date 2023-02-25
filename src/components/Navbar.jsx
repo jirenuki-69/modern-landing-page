@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { close, logo, menu } from '../assets';
 import { navLinks } from '../constants';
+import { animations } from '../utils/style';
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
@@ -38,9 +39,13 @@ const Navbar = () => {
                 key={nav.id}
                 className={`font-poppins font-normal cursor-pointer text-[16px] ${
                   index === navLinks.length - 1 ? 'mb-0' : 'mb-4'
-                } text-white`}
+                }  text-white hover:${animations.scale} hover:${animations.textColor}`}
               >
-                <a href={`#${nav.id}`}>{nav.title}</a>
+                <a
+                  href={`#${nav.id}`}
+                >
+                  {nav.title}
+                </a>
               </li>
             ))}
           </ul>

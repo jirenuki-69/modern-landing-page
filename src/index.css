@@ -118,10 +118,13 @@
 
 .feedback-card {
   background: transparent;
+  transition: transform .3s;
+  transform: scale(1) translateY(0px);
 }
 
 .feedback-card:hover {
   background: var(--black-gradient);
+  transform: scale(1.1) translateY(-30px);
 }
 
 .blue__gradient {
@@ -137,4 +140,8 @@
 .white__gradient {
   background: rgba(255, 255, 255, 0.6);
   filter: blur(750px);
+}
+
+.client:hover {
+  filter: invert(99%) sepia(30%) saturate(6598%) hue-rotate(144deg) brightness(100%) contrast(80%);
 }

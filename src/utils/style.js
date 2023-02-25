@@ -1,4 +1,4 @@
-const styles = {
+  const styles = {
   boxWidth: "xl:max-w-[1280px] w-full",
 
   heading2: "font-poppins font-semibold xs:text-[48px] text-[40px] text-white xs:leading-[76.8px] leading-[66.8px] w-full",
@@ -23,6 +23,11 @@ export const layout = {
   sectionImg: `flex-1 flex ${styles.flexCenter} md:ml-10 ml-0 md:mt-0 mt-10 relative`,
 
   sectionInfo: `flex-1 ${styles.flexStart} flex-col`,
+};
+
+export const animations = {
+  scale: 'scale-110 transition ease-in-out duration-200',
+  textColor: 'text-secondary transition ease-linear duration-200'
 };
 
 export default styles;
