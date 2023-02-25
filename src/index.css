@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -85,6 +85,14 @@
   animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
+.nav-link {
+  transition: transform 0.3s;
+  transform: scale(1) white;
+}
+.nav-link:hover {
+  transform: scale(1.1) #00f6ff;
+}
+
 @-webkit-keyframes slide-top {
   0% {
     -webkit-transform: translateY(100px);
@@ -107,6 +115,28 @@
   }
 }
 
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg) scale(1);
+    transform: rotate(0deg) scale(1);
+  }
+  100% {
+    -webkit-transform: rotate(360deg) scale(1.2);
+    transform: rotate(360deg) scale(1.2);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg) scale(1);
+    transform: rotate(0deg) scale(1);
+  }
+  100% {
+    -webkit-transform: rotate(360deg) scale(1.2);
+    transform: rotate(360deg) scale(1.2);
+  }
+}
+
 .feature-card:hover {
   background: var(--black-gradient);
   box-shadow: var(--card-shadow);
@@ -118,7 +148,7 @@
 
 .feedback-card {
   background: transparent;
-  transition: transform .3s;
+  transition: transform 0.3s;
   transform: scale(1) translateY(0px);
 }
 
@@ -143,5 +173,62 @@
 }
 
 .client:hover {
-  filter: invert(99%) sepia(30%) saturate(6598%) hue-rotate(144deg) brightness(100%) contrast(80%);
+  filter: invert(99%) sepia(30%) saturate(6598%) hue-rotate(144deg)
+    brightness(100%) contrast(80%);
+}
+
+.opacity-transition {
+  animation: opacity-animation 800ms ease-in forwards;
+}
+
+@keyframes opacity-animation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeInAnimationLeft {
+  animation: fade-in-animation-left 600ms ease-in forwards;
+}
+
+@keyframes fade-in-animation-left {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fadeInAnimationRight {
+  animation: fade-in-animation-right 600ms ease-in forwards;
+}
+
+@keyframes fade-in-animation-right {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fadeInAnimationUp {
+  animation: fade-in-animation-up 600ms ease-in forwards;
+}
+
+@keyframes fade-in-animation-up {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }

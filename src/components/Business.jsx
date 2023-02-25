@@ -1,5 +1,6 @@
 import React from 'react';
 import { features } from '../constants';
+import { useObserverView } from '../hooks';
 import styles, { animations, layout } from '../utils/style';
 import Button from './Button';
 
@@ -24,9 +25,12 @@ const FeatureCard = ({ icon, title, content, index }) => (
 );
 
 const Business = () => {
+  const { ref: sectionInfoRef, inView: infoInView } = useObserverView();
+  const { ref, inView } = useObserverView();
+
   return (
     <section id="features" className={layout.section}>
-      <div className={layout.sectionInfo}>
+      <div ref={sectionInfoRef} className={`${layout.sectionInfo} ${infoInView ? 'fadeInAnimationRight' : ''}`}>
         <h2 className={styles.heading2}>
           You do the business, <br className="sm:block hidden" /> we’ll handle the money.
         </h2>
@@ -36,7 +40,7 @@ const Business = () => {
         </p>
         <Button styles="mt-10" />
       </div>
-      <div className={`${layout.sectionImg} flex-col`}>
+      <div ref={ref} className={`${layout.sectionImg} flex-col ${inView ? 'fadeInAnimationLeft' : ''}`}>
         {features.map((feature, index) => (
           <FeatureCard key={feature.id} {...feature} index={index} />
         ))}
